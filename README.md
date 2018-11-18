@@ -1,0 +1,2 @@
+# Technical Documentation Page
+This repo is for my submission for the freeCodeCamp challenge: [Build a Technical Documentation Page](https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page)
