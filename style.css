@@ -1,0 +1,72 @@
+:root {
+  --primary: #993333;
+  --light: white;
+  --dark: black;
+}
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.1em;
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+#navbar {
+  background-color: var(--primary);
+  color: var(--light);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 30%;
+  height: 100%;
+}
+
+#navbar header {
+  display: block;
+  font-size: 2.5em;
+  margin: 20px 0 20px 0;
+  text-align: center;
+}
+
+.nav-link {
+  color: var(--light);
+  display: block;
+  font-size: 1.5em;
+  margin: 30px 0 30px 20px;
+  text-decoration: none;
+}
+
+#main-doc {
+  margin-left: 30%;
+  padding: 0 30px 0 30px;
+}
+
+#main-doc header {
+  font-size: 2em;
+  margin: 10px 0 10px 0;
+}
+
+@media only screen and (max-width: 812px) {
+  #navbar {
+    display: block;
+    height: 200px;
+    width: 100%;
+  }
+
+  #navbar header {
+    font-size: 1.5em;
+    margin: 10px 0 10px 0;    
+  }
+  
+  .nav-link {
+    display: block;
+    font-size: .9em;
+    padding: 5px 0 5px 0;
+    margin: 0 0 0 30%;
+  }
+
+  #main-doc {
+    margin: 220px 0% 0% 0%;
+  }
+}

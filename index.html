@@ -1,13 +1,91 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Shifting Numerical Bases</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-</head>
-<body>
-  
-</body>
-</html>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Numerical Bases</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+
+<nav id="navbar">
+  <header>Numerical Bases</header>
+  <a class="nav-link" href="#What_is_a_Numerical_Base?">What is a Numerical Base?</a>
+  <a class="nav-link" href="#Base_10">Base 10</a>
+  <a class="nav-link" href="#Base_2">Base 2</a>
+  <a class="nav-link" href="#Base_16">Base 16</a>
+  <a class="nav-link" href="#Converting_Bases">Converting Bases</a>
+</nav>
+
+<main id="main-doc">
+  <section id="What_is_a_Numerical_Base?" class="main-section">
+    <header>What is a Numerical Base?</header>
+    <p>A numerical base represents how many symbols there are in a numerical system. Each symbol represents a number, so what happens if you run out of symbols?</p>
+    <p>When you run out of symbols in a number system you can add an additional symbol slot and increase the amount of numbers you can represent by a factor of however many symbols you have. In our number systems we add the new symbols to the left of the old one.</p>
+    <p>Whenever you already have the largest symbol and need to increase your number by one, you reset the largest symbol to the zero symbol and increment the symbol to the left of the symbol you just reset by one.</p>
+    <p>The farther left a symbol is, the larger a value it represents, for example take this 3 symbol (base 3) number system:</p>
+    <code>& = 0</code>
+    <br>
+    <code>^ = 1</code>
+    <br>
+    <code>@ = 2</code>
+    <br>
+    <code>^ = 1</code>
+    <br>
+    <code>^& = 3</code>
+    <br>
+    <code>^&& = 9</code>
+    <p>The pattern to pick up is that the value of any symbol at a given slot (0 being the rightmost) is: symbol value * number of symbols^ (to the power of) slot distance from rightmost slot</p>
+    <p>After these abstract explainations lets go into the practical base systems we use most often.</p>
+  </section>
+
+  <section id="Base_10" class="main-section">
+    <header>Base 10</header>
+    <p>Base 10, also refered to as decimal, is the number system that we use in every day dealings. It's what you think of when you think of numbers.</p>
+    <p>Base 10 has the following symbols:</p>
+    <code>0</code>
+    <code>1</code>
+    <code>2</code>
+    <code>3</code>
+    <code>4</code>
+    <code>5</code>
+    <code>6</code>
+    <code>7</code>
+    <code>8</code>
+    <code>9</code>
+    <p>These symbols are so well known that I used them to explain the values of &, ^, and @ in my made up base 3 number system earlier.</p>
+    <p>That said it's important to understand that there is nothing magic about the number 10, other than it is the smallest value that cannot be represented in 1 symbol in base 10. The "multiplying by ten just means add a zero to the right" trick works in all bases and can be stated more generally as "multiplying by base just means add a zero to the right" (or shift all digits left inserting a zero on the right depending on how you want to think about it).</p>
+  </section>
+
+  <section id="Base_2"class="main-section">
+    <header>Base 2</header>
+    <p>Base 2, or binary, is particularly notable as it is the number system used in computers. In computer memory the smallest unit of storage is called a bit, and bits can carry only 2 values: 0 or 1.</p>
+    <p>You might wonder, how do computers represent so many possible states given that each bit only has two values? The obvious (but less significant) answer is that your machine has a lot of bits. For example 4 gigabytes is 34359738368 bits.</p>
+    <p>The much more significant factor was hinted at earlier: number of symbols ^ slot. The number of values that can be represented increases exponentially for every bit of memory space that is added. So while 34359738368 may not be seem very large I encourage you to try and see what 2 ^ 34359738368 looks like expanded.</p>
+  </section>
+
+  <section id="Base_16" class="main-section">
+    <header>Base 16</header>
+    <p>Base 16, or hexidecimal, is another commonly used number format in computers. An area where you may have seen it on freeCodeCamp would be in CSS, where you can write a color like so:</p>
+    <code>color: #FFFFFF;</code>
+    <p>F is the last symbol in hexidecimal so FF is base * value of F + value of F and since the last symbol in a base is one less than the base F = 15.</p>
+    <p>This gives 16 * 15 + 15 which is 255. So #FFFFFF is the same as rgb(255, 255, 255).</p>
+  </section>
+
+  <section id="Converting_Bases"class="main-section">
+    <header>Converting Bases</header>
+    <p>The two most popular algorithms for converting bases are listed below. The first one is the way many people would do on pen and paper and is easy to reason about while the second is commonly implemented in programs and multiplies by a constant about on each interation.</p>
+    <h4>Algorithm 1:</h4>
+    <ul>
+      <li>For each digit:</li>
+      <li>multiply number * base ^ distance from rightmost digit</li>
+      <li>sum all numbers</li>
+    </ul>
+
+    <h4>Algorithm 2:</h4>
+    <ul>
+      <li>For each digit starting with the left:</li>
+      <li>Add digit to sum</li>
+      <li>If there is a digit to the right multiply sum by base</li>
+    </ul>
+  </section>
+</main>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
